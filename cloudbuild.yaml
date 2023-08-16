@@ -1,57 +1,58 @@
 steps:
-  # reservations
+  # Reservations
   - name: 'gcr.io/cloud-builders/docker'
-    args: [
-      'build',
-      '-t',
-      'us-east4-docker.pkg.dev/reserver-395902/reservations/production',
-      '-f',
-      'apps/reservations/Dockerfile',
-      '.',
-    ]
+    args:
+      [
+        'build',
+        '-t',
+        'us-east4-docker.pkg.dev/reserver-395902/reservations/production',
+        '-f',
+        'apps/reservations/Dockerfile',
+        '.',
+      ]
   - name: 'gcr.io/cloud-builders/docker'
-    args: 
-    ['push', 'us-east4-docker.pkg.dev/reserver-395902/reservations/production']
+    args:
+      ['push', 'us-east4-docker.pkg.dev/reserver-395902/reservations/production']
 
   # Auth
   - name: 'gcr.io/cloud-builders/docker'
-    args: [
-      'build',
-      '-t',
-      'us-east4-docker.pkg.dev/reserver-395902/auth/production',
-      '-f',
-      'apps/auth/Dockerfile',
-      '.',
-    ] 
+    args:
+      [
+        'build',
+        '-t',
+        'us-east4-docker.pkg.dev/reserver-395902/auth/production',
+        '-f',
+        'apps/auth/Dockerfile',
+        '.',
+      ]
   - name: 'gcr.io/cloud-builders/docker'
-    args: 
-    ['push', 'us-east4-docker.pkg.dev/reserver-395902/auth/production']
+    args: ['push', 'us-east4-docker.pkg.dev/reserver-395902/auth/production']
 
-  #Notifications
+  # Notifications
   - name: 'gcr.io/cloud-builders/docker'
-    args: [
-      'build',
-      '-t',
-      'us-east4-docker.pkg.dev/reserver-395902/notifications/production',
-      '-f',
-      'apps/notifications/Dockerfile',
-      '.',
-    ]
+    args:
+      [
+        'build',
+        '-t',
+        'us-east4-docker.pkg.dev/reserver-395902/notifications/production',
+        '-f',
+        'apps/notifications/Dockerfile',
+        '.',
+      ]
   - name: 'gcr.io/cloud-builders/docker'
-    args: 
-    ['push', 'us-east4-docker.pkg.dev/reserver-395902/notifications/production']
+    args:
+      ['push', 'us-east4-docker.pkg.dev/reserver-395902/notifications/production']
 
-  #Payments
+  # Payments
   - name: 'gcr.io/cloud-builders/docker'
-    args: [
-      'build',
-      '-t',
-      'us-east4-docker.pkg.dev/reserver-395902/payments/production',
-      '-f',
-      'apps/payments/Dockerfile',
-      '.',
-    ]
+    args:
+      [
+        'build',
+        '-t',
+        'us-east4-docker.pkg.dev/reserver-395902/payments/production',
+        '-f',
+        'apps/payments/Dockerfile',
+        '.',
+      ]
   - name: 'gcr.io/cloud-builders/docker'
-    args: 
-    ['push', 'us-east4-docker.pkg.dev/reserver-395902/payments/production']
-  
+    args: ['push', 'us-east4-docker.pkg.dev/reserver-395902/payments/production']
