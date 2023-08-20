@@ -12,6 +12,13 @@ import { CreateUserDto } from './users/dto/create-user.dto';
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
+  @Post('register')
+    async createUser(
+        @Body() createUserDto: CreateUserDto
+  ) {
+    return this.authService.register(createUserDto)
+  }
+
   @UseGuards(LocalAuthGuard)
   @Post('login')
   async login(
@@ -23,13 +30,7 @@ export class AuthController {
     response.send(user);
   }
 
-  @Post('register')
-    async createUser(
-        @Body() createUserDto: CreateUserDto
-  ) {
-    return this.authService.register(createUserDto)
-  }
-
+  
   @Get('logout')
   async logout(
     @Res({ passthrough: true }) response: Response
