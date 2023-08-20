@@ -9,6 +9,8 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { LocalStrategy } from './strategies/local.strategy';
 import { JwtStrategy } from './strategies/jwt.strategy';
 import { UsersService } from './users/users.service';
+import { UsersRepository } from './users/user.repository';
+import { AuthRepository } from './auth.repository';
 
 @Module({
   imports: [
@@ -36,6 +38,6 @@ import { UsersService } from './users/users.service';
     HealthModule,
   ],
   controllers: [AuthController],
-  providers: [AuthService, LocalStrategy, JwtStrategy, UsersService],
+  providers: [AuthService, LocalStrategy, JwtStrategy, AuthRepository],
 })
 export class AuthModule {}
