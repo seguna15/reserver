@@ -9,7 +9,7 @@ import { Transport } from '@nestjs/microservices';
 async function bootstrap() {
   const app = await NestFactory.create(AuthModule);
   app.enableCors({
-      origin: 'https://aesthetic-malabi-207edd.netlify.app/',
+      origin: 'http://localhost:3000',
       credentials: true,
   });
   const configService = app.get(ConfigService);
