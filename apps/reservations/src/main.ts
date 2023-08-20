@@ -8,7 +8,7 @@ import * as cookieParser from 'cookie-parser';
 async function bootstrap() {
   const app = await NestFactory.create(ReservationsModule);
   app.enableCors({
-      origin: 'http://localhost:3000',
+      origin: 'https://aesthetic-malabi-207edd.netlify.app/',
       credentials: true,
   });
   app.useGlobalPipes(new ValidationPipe({whitelist: true}));
