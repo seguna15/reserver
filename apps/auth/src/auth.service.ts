@@ -49,8 +49,6 @@ export class AuthService {
      response.cookie('Authentication', token, {
       httpOnly: true,
       maxAge: 24 * 60 * 60 * 1000,  
-      sameSite: 'none',
-      secure: true
     }); //sameSite: 'none', secure: true, for production
 
     return token;
