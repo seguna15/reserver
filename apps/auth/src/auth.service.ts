@@ -52,6 +52,8 @@ export class AuthService {
       secure: true,
       sameSite: 'none',
     }); //sameSite: 'none', secure: true, for production
+
+    return token;
   }
 
 
