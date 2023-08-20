@@ -4,14 +4,21 @@ import { Request, Response } from 'express';
 import { ConfigService } from '@nestjs/config';
 import { JwtService } from '@nestjs/jwt';
 import { TokenPayload } from './interfaces/token-payload.interface';
+import { CreateUserDto } from './users/dto/create-user.dto';
+import { UsersService } from './users/users.service';
 
 @Injectable()
 export class AuthService {
 
   constructor(
     private readonly configService: ConfigService,
-    private readonly jwtService: JwtService
+    private readonly jwtService: JwtService,
+    private readonly userService: UsersService
   ) {}
+
+   async register(createUserDTO: CreateUserDto) {
+      return await this.userService.create(createUserDTO);
+    }
 
   async login(user: UserDocument, response: Response) {
     const tokenPayload: TokenPayload = {
@@ -31,6 +38,7 @@ export class AuthService {
       
     }); //sameSite: 'none', secure: true, for production
   }
+
 
   async logout(
     response: Response
