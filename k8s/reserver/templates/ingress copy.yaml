@@ -2,15 +2,11 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: reserver
-  annotations:
-    # This tells Google Cloud to create an External Load Balancer to realize this Ingress
-    kubernetes.io/ingress.class: gce
-    # This enables HTTP connections from Internet clients
-    kubernetes.io/ingress.allow-http: "true"
-    # This tells Google Cloud to associate the External Load Balancer with the static IP which we created earlier
-    kubernetes.io/ingress.global-static-ip-name: web-ip
-    networking.gke.io/managed-certificates: managed-cert
 spec:
+  tls:
+    - hosts:
+      - alhassank8s.com
+    - secretName: my-ingress-tls
   rules:
     - host: alhassank8s.com
     - http:
